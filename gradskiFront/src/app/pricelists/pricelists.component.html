@@ -1,0 +1,11 @@
+
+<div fxLayout="row" fxLayoutAlign="center center" class="addButton">
+  <button mat-icon-button (click)="onAdd()" color="primary"><mat-icon>add_circle</mat-icon></button>
+</div>
+<div fxLayout="row wrap"  >
+
+  <div *ngFor="let pricelist of pricelists" fxFlex="25" class="pricelistCard" >
+      <app-pricelist [pricelist]="pricelist"></app-pricelist>
+  </div>
+
+</div>

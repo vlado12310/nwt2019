@@ -1,0 +1,18 @@
+<form class="example-form" enctype="multipart/form-data">
+  <table class="table" cellspacing="0">
+    <tr><td>
+      <select #fontSize [(ngModel)]="selectedType" name="selectType">
+        <option value="" selected disabled hidden>Izaberite tip</option>
+        <option value="STUDENT">Student</option>
+        <option value="ELDERLY">Penzioner</option>
+      </select>          
+    </td></tr>
+    <tr><td>
+      <label for="input-file-id" class="md-button md-raised md-primary">Odaberite sliku</label><br>
+      <input class="ng-hide" id="input-file-id" multiple type="file" (change)="valuechangeIMG($event)">
+    </td></tr>
+    <tr><td> 
+      <button type="submit" mat-stroked-button="user-button" (click)="sendStatusRequest()">Posalji</button>
+    </td></tr>
+  </table>
+</form>

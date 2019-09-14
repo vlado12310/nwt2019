@@ -1,0 +1,12 @@
+<form [formGroup]="zoneService.form">
+  <input type="hidden" formControlName="id">
+  <mat-form-field class="full-width">
+      <input  matInput formControlName="name" placeholder="Ime zone">
+      <mat-error>Ovo polje je obavezno </mat-error>
+  </mat-form-field>
+
+  <div align ="end">
+    <button mat-raised-button (click)="onSubmit()" color="primary" type="submit" class="button" [disabled]="zoneService.form.invalid">Sacuvaj</button>
+    <button mat-raised-button (click)="onClose()" class="button">Izadji</button>
+  </div>
+</form>

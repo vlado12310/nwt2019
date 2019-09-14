@@ -1,0 +1,21 @@
+<mat-card *ngIf="zone" class="card">
+  <mat-card-title>{{zone.name}}</mat-card-title>
+
+  <mat-card-content [style.overflow]="'auto'" >
+    <div *ngFor="let line of zone.lines">
+        <button mat-raised-button color="primary"> {{line.name}} </button>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-icon-button color="basic" (click)="onEdit()" class="button"
+      *ngIf="loginService.currentUserValue && loginService.currentUserValue.status=='ADMIN'">
+      <mat-icon color="primary">edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="onDelete()" class="button"
+    *ngIf="loginService.currentUserValue && loginService.currentUserValue.status=='ADMIN'">
+        <mat-icon>delete</mat-icon>
+     </button>
+  </mat-card-actions>
+
+</mat-card>

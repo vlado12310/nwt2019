@@ -1,0 +1,9 @@
+.activeLabel{
+  color: green !important;
+}
+.title{
+  margin-bottom: 15px;
+}
+.edit-delete{
+    float:right;
+}

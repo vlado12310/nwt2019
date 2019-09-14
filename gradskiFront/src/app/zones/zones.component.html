@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="addButton">
+  <button mat-icon-button color="primary" (click)="onAdd()"
+  *ngIf="loginService.currentUserValue && loginService.currentUserValue.status == 'ADMIN' ">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+</div>
+<div fxLayout="row wrap" *ngIf="zones" class="cards" >
+
+  <div *ngFor="let zone of zones" fxFlex="50" class="zoneCard" >
+    <app-zone [zone]="zone"> </app-zone>
+  </div>
+
+</div>

@@ -1,0 +1,40 @@
+/* AppComponent's private CSS styles */
+
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607d8b;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #cfd8dc;
+}
+nav a.active {
+  color: #039be5;
+}
+.pricelistItems{
+    margin: 5%;
+}
+table {
+  width: 70%;
+
+
+}
+.button{
+  float:right;
+  margin-top:5px;
+}
+.add-button{
+  margin-bottom:10px;
+}

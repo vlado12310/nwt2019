@@ -1,0 +1,67 @@
+<div class="main">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Registration form</mat-card-title>
+          </mat-card-header>
+
+
+        <form class="example-form" >
+  <table class="table" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width">
+      <input #fName matInput placeholder="First name" [formControl]="fNameFormControl"
+      [errorStateMatcher]="matcher">
+      <mat-error *ngIf="fNameFormControl.hasError('required')">
+        first name is required
+      </mat-error>
+    </mat-form-field></td>
+    
+  </tr>
+  <tr><td><mat-form-field class="example-full-width">
+    <input  #lName matInput placeholder="Last name" [formControl]="lNameFormControl"
+    [errorStateMatcher]="matcher">
+    <mat-error *ngIf="lNameFormControl.hasError('required')">
+      last name is required
+    </mat-error>
+  </mat-form-field></td></tr>
+  <tr>
+    <td><mat-form-field class="example-full-width">
+      <input #email matInput placeholder="Email" type="email" [formControl]="emailFormControl"
+      [errorStateMatcher]="matcher">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field></td>
+  </tr>
+  <tr>
+    <td> <mat-form-field class="example-full-width">
+      <input #password class="input" matInput placeholder="Password" type="password" [formControl]="passwordFormControl"
+      [errorStateMatcher]="matcher">
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        password is required
+      </mat-error>
+   </mat-form-field></td>
+  </tr>
+  <tr>
+    <td><mat-form-field class="example-full-width" >
+      <input #password2 matInput placeholder="Repeat password" type="password" [formControl]="passwordRFormControl"
+      [errorStateMatcher]="matcher">
+      <mat-error *ngIf="passwordRFormControl.hasError('required')">
+        password is required
+      </mat-error>
+    </mat-form-field></td>
+  </tr>
+  <tr>
+
+    <td>
+      <button class="button" type="button"  mat-button  (click)="onRegisterClick()" > Register</button>
+    </td>
+  </tr>
+</table>
+</form>
+</mat-card>  
+
+</div>

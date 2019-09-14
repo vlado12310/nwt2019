@@ -1,0 +1,22 @@
+<mat-toolbar class="toolbar">
+  <span>{{pricelistService.form.controls['id'].value?"Izmena cenovnika":"Dodavanje cenovnika"}}</span>
+</mat-toolbar>
+<form [formGroup]="pricelistService.form" class="normal_form">
+    <input type="hidden" formControlName="id"/>
+    <mat-form-field class="full-width">
+      <input matInput [matDatepicker]="start" placeholder="početni datum" formControlName="start">
+      <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+      <mat-datepicker #start></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput [matDatepicker]="end" placeholder="krajnji datum" formControlName="end">
+      <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+      <mat-datepicker #end></mat-datepicker>
+    </mat-form-field>
+
+  <div align ="end">
+    <button mat-raised-button (click)="onSubmit()" color="primary" type="submit" class="button" >Sacuvaj</button>
+    <button mat-raised-button (click)="onClose()" class="button">Izadji</button>
+  </div>
+
+</form>

@@ -1,0 +1,51 @@
+div{
+
+    margin-top: 1%;
+}
+mat-form-field{
+  width:160px;
+}
+.width-div{
+  width:20%;
+  height: 0%;
+}
+.normal_form{
+
+    margin-right:3%;
+  display:inline-block;
+}
+.line_form{
+
+  margin-right: 3%;
+  display:inline-block;
+}
+.izbrisi{
+  margin-right:10%;
+}
+.button{
+  margin-left:10px;
+}
+.name-field{
+  margin-right:10px;
+}
+.field{
+  margin-right:5px;
+
+}
+.delete_form{
+  display:inline-block;
+}
+.delete_form_line{
+  display:inline-block;
+}
+.button{
+  width:120px;
+}
+.view_form_line{
+  margin-left: 2%;
+  display:inline-block;
+}
+.zone_form{
+  margin-left:25%;
+  display:inline-block;
+}

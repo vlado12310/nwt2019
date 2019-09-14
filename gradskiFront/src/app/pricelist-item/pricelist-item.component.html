@@ -1,0 +1,35 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>
+    <mat-form-field>
+    <input matInput  placeholder="Ime karte" >
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-form-field>
+      <input matInput type="number"  placeholder="Trajanje u satima" >
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-form-field>
+      <mat-select placeholder="Potreban status">
+        <mat-option *ngFor="let userStatus of userStatuses" value="userStatus.value">
+          {{userStatus.status}}
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Cena" >
+    </mat-form-field>
+
+  </mat-grid-tile>
+  <mat-grid-tile>
+
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <button   class="button"   mat-raised-button color="primary" >Sacuvaj</button>
+    <button   class="button"   mat-raised-button  >Cencel</button>
+
+  </mat-grid-tile>
+</mat-grid-list>

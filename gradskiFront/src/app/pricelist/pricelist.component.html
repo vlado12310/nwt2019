@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title class="title"> Cenovnik {{pricelist.id}} </mat-card-title>
+
+  <mat-card-subtitle >	Datum početka važenja: {{ pricelist.start }} </mat-card-subtitle>
+  <mat-card-subtitle>	Datum završetka važenja: {{pricelist.end}} </mat-card-subtitle>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" routerLink="/pricelist/{{pricelist.id}}">Više detalja</button>
+    <button class="activeLabel" *ngIf="pricelist.active" mat-button disabled>aktivan</button>
+
+    <button mat-icon-button (click)="onDelete()" color="warn" class="edit-delete"><mat-icon>delete</mat-icon></button>
+    <button mat-icon-button (click)="onEdit()" color="primary" class="edit-delete"><mat-icon>edit</mat-icon></button>
+  </mat-card-actions>
+
+</mat-card>

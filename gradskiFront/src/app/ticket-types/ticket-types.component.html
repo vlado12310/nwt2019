@@ -1,0 +1,11 @@
+
+<div fxLayout="row" fxLayoutAlign="center center" class="addButton">
+  <button mat-icon-button color="primary" (click)="onAdd()"><mat-icon>add_circle</mat-icon></button>
+</div>
+<div fxLayout="row wrap" *ngIf="ticketTypes" class="cards" >
+
+  <div *ngFor="let ticketType of ticketTypes" fxFlex="25" class="ticketTypeCard" >
+    <app-ticket-type [ticketType]="ticketType"></app-ticket-type>
+  </div>
+
+</div>

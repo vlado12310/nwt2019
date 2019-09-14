@@ -1,0 +1,18 @@
+<div >
+  <mat-card class="example-card" >
+    <mat-card-header>
+      <mat-card-title>{{request.user.name}} {{request.user.lname}}</mat-card-title>
+      <mat-card-subtitle>{{request.user.email}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="http://localhost:8090/api/downloadFile/images/{{request.user.idUser}}.jpg/{{dateTimeNow}}" alt="Image not found.">
+    <mat-card-content>
+      <p>
+        {{printType}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="approve()">Prihvati</button>
+      <button mat-button (click)="delete()">Odbaci</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

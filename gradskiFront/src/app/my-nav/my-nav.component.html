@@ -1,0 +1,58 @@
+
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav  #drawer class="sidenav" fixedInViewport="false"
+
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async)">
+    <mat-toolbar>Menu </mat-toolbar>
+    <mat-nav-list >
+      <a *ngIf="this.loginService.currentUserValue && this.loginService.currentUserValue.status=='ADMIN'" mat-list-item routerLink ="/pricelists">Cenovnici</a>
+      <a *ngIf="this.loginService.currentUserValue && this.loginService.currentUserValue.status=='ADMIN'" mat-list-item routerLink="/ticketTypes">Karte</a>
+      <a *ngIf="(this.loginService.currentUserValue &&
+                this.loginService.currentUserValue.status!='ADMIN'
+                && this.loginService.currentUserValue.status!=CONDUCTER) ||
+                !this.loginService.currentUserValue" mat-list-item routerLink="/pricelists/active">Cenovnik</a>
+      <a  mat-list-item routerLink="/mapa">Mapa</a>
+      <a mat-list-item routerLink="/zones">Zone</a>
+      <a *ngIf="!this.loginService.currentUserValue" mat-list-item routerLink="/login">Log in</a>
+      <a *ngIf="!this.loginService.currentUserValue" mat-list-item routerLink="/register">Sign up</a>
+      <a *ngIf="(this.loginService.currentUserValue &&
+      this.loginService.currentUserValue.status!='ADMIN'
+      && this.loginService.currentUserValue.status!=CONDUCTER)"
+       mat-list-item routerLink="/myTickets">Moje karte</a>
+      <a *ngIf="(this.loginService.currentUserValue &&
+      this.loginService.currentUserValue.status==CONDUCTER)" 
+      mat-list-item routerLink="/checkTicket">Provera karte</a>
+      <a *ngIf="(this.loginService.currentUserValue &&
+      this.loginService.currentUserValue.status!='ADMIN'
+      && this.loginService.currentUserValue.status!=CONDUCTER)" 
+      mat-list-item routerLink="/sendRequest">Promeni status</a>
+      <a *ngIf="this.loginService.currentUserValue 
+      && this.loginService.currentUserValue.status=='ADMIN'"
+       mat-list-item routerLink="/checkRequests">Pregled zahteva</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+      <app-login-small *ngIf="!this.loginService.currentUserValue" ></app-login-small>
+      <button *ngIf="this.loginService.currentUserValue" mat-button class="user-button" (click)="logOut()" routerLink="/" >Odjava</button>
+    </mat-toolbar>
+  
+      <div class="router-out">
+       <router-outlet ></router-outlet>
+      </div>
+
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

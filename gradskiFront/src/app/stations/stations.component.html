@@ -1,0 +1,29 @@
+<div >
+<form [formGroup]="form" class="normal_form"  >
+  <mat-form-field class="name-field">
+    <input matInput   placeholder="Station name" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field class="field">
+    <input matInput readonly type="number"  placeholder="Latitude" formControlName="lat">
+  </mat-form-field>
+
+  <mat-form-field class="field">
+    <input matInput readonly type="number"  placeholder="Longitute" formControlName="lng">
+  </mat-form-field>
+
+  <button mat-raised-button (click)="onSubmit()" color="primary" type="submit" class="button" [disabled]="form.invalid">{{buttonText}}</button>
+</form>
+
+<form [formGroup]="deleteForm"  class="delete_form">
+  <mat-form-field class="field">
+    <input matInput readonly type="number"  placeholder="Station ID" formControlName="id">
+  </mat-form-field>
+
+  <button mat-raised-button (click)="onDelete()" color="warn" type="submit" class="button" [disabled]="deleteForm.invalid">Delete</button>
+</form>
+</div>
+
+<div id="map">
+
+  </div>

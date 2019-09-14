@@ -1,0 +1,25 @@
+<mat-toolbar>
+  <span>{{pricelistItemService.form.controls['isEdit'].value?"Izmena stavke cenovnika":"Dodavanje stavke cenovnika"}}</span>
+</mat-toolbar>
+<form [formGroup]="pricelistItemService.form" class="normal_form">
+    <mat-form-field *ngIf="!pricelistItemService.form.controls['isEdit'].value" class="full-width">
+        <mat-select  formControlName="ticketTypeId" placeholder="Tip karte">
+          <mat-option  *ngFor="let ticketType of ticketTypes" [value]="ticketType.id">
+            {{ticketType.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error >ovo polje je obavezno</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="full-width" >
+      <input matInput type="number" formControlName="price" placeholder="cena" >
+      <mat-error *ngIf="pricelistItemService.form.controls['price'].errors?.required">ovo polje je obavezno</mat-error>
+      <mat-error *ngIf="pricelistItemService.form.controls['price'].errors?.min">cena mora biti veca od 0</mat-error>
+    </mat-form-field>
+  <div align ="end">
+    <button mat-raised-button (click)="onSubmit()" color="primary" type="submit" class="button" [disabled]="pricelistItemService.form.invalid">Sacuvaj</button>
+    <button mat-raised-button (click)="onClose()" class="button">Izadji</button>
+  </div>
+
+</form>

@@ -1,0 +1,13 @@
+<div fxLayoutAlign="center center">
+  <mat-card  class="card">
+      <mat-form-field class="fullwidth">
+        <input matInput [(ngModel)]="username" placeholder="username" >
+      </mat-form-field>
+      <mat-form-field class="fullwidth">
+        <input matInput [(ngModel)]="password"   placeholder="password" [type]="!hide ? 'password' : 'text'">
+      </mat-form-field>
+      <mat-card-actions>
+        <button   class="submitbtn"  (click)="login()" mat-raised-button color="primary" >Login</button>
+      </mat-card-actions>
+  </mat-card>
+</div>

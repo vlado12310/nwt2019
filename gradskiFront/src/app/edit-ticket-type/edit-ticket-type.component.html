@@ -1,0 +1,34 @@
+<mat-toolbar>
+  <span>{{ticketTypeService.form.controls['id'].value?"Izmena karte":"Dodavanje nove karte"}}</span>
+</mat-toolbar>
+<form [formGroup]="ticketTypeService.form" class="normal_form">
+    <mat-form-field class="full-width">
+      <input matInput formControlName="name" placeholder="Ime">
+      <mat-error>ovo polje je obavezno</mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input type="number" matInput formControlName="durationInHours" placeholder="Trajanje u satima">
+      <mat-error *ngIf="ticketTypeService.form.controls['durationInHours'].errors?.required">ovo polje je obavezno</mat-error>
+      <mat-error *ngIf="ticketTypeService.form.controls['durationInHours'].errors?.min">trajanje u satima mora biti vece od 0</mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+
+      <mat-select  formControlName="requiredStatus" placeholder="Required status">
+        <mat-option  *ngFor="let userStatus of userStatuses" [value]="userStatus">
+          {{userStatus}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" >
+  <mat-select placeholder="Zone" formControlName="zones" multiple>
+    <mat-option *ngFor="let zone of zones" [value]="zone">{{zone.name}}</mat-option>
+  </mat-select>
+  <mat-error>morate izabrati barem jednu zonu</mat-error>
+</mat-form-field>
+  <div align ="end">
+    <button mat-raised-button (click)="onSubmit()" color="primary" type="submit" class="button" [disabled]="ticketTypeService.form.invalid">Sacuvaj</button>
+    <button mat-raised-button (click)="onClose()" class="button">Izadji</button>
+  </div>
+
+</form>

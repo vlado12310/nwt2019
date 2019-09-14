@@ -1,0 +1,26 @@
+
+<div align="center">
+    <input matInput [(ngModel)]="email" placeholder="email">
+    <button   class="submitbtn"  (click)="find()" mat-raised-button color="primary" >Pretrazi</button>
+    <h1 >Aktivne karte od korisnika</h1>
+      <table style="border: solid 1px black">
+        <tr>
+          <th>Tip karte</th>
+          <th>Trajanje u satima</th>
+          <th>Datum kupovine</th>
+          <th>Aktivna</th>
+        </tr>
+        <tr *ngFor="let ticket of userTickets">
+          <td>{{ticket.ticketType.name}}</td>
+          <td>{{ticket.ticketType.durationInHours}}</td>
+          <td>{{ticket.purchaseDate}}</td>
+          <td *ngIf="!ticket.timeOfActivation">
+            <button (click)="activateTicket(ticket)">Aktiviraj</button>
+          </td>
+          <td *ngIf="ticket.timeOfActivation">
+              {{ticket.timeOfActivation}}
+          </td>
+        </tr>
+      </table>
+  </div>
+  

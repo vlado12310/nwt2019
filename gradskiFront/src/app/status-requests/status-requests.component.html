@@ -1,0 +1,10 @@
+<div align="center">
+    <h1 >Odobravanje zahteva</h1>
+      <table>
+
+        <tr *ngFor="let req of statusRequests">
+          <app-status-request [request] = "req" *ngIf="!req.approved"></app-status-request>
+        </tr>
+      </table>
+  </div>
+  

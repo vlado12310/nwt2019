@@ -1,0 +1,32 @@
+<div>
+  <form [formGroup]="formLine" #formDirective="ngForm" class="line_form">
+    <mat-form-field class="ime_linije name-field">
+      <input matInput placeholder="Ime linije" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="field">
+      <mat-select placeholder="Zona" formControlName="zone">
+        <mat-option *ngFor="let zone of zones" [value]="zone">{{zone.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+      <mat-form-field class="field">
+        <mat-select placeholder="Stanice" multiple formControlName="stationsControl" [(ngModel)]="selectedStations" >
+          <mat-option *ngFor="let station of stations" [value]="station">{{station.toListItemString()}}</mat-option>
+        </mat-select>
+      </mat-form-field> 
+
+      <div class="example-container">
+        <div cdkDropList #selectedDrop="cdkDropList" [cdkDropListData]="selectedStations" class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let station of selectedStations; let i = index;" cdkDrag>{{i+1}}.
+            {{station.toListItemString()}} {{markStation(station)}}
+          </div>
+        </div>
+      </div>
+
+
+    <button mat-raised-button color="primary"  (click)="onAddLine()"  type="submit" class="button" [disabled]="formLine.invalid">Dodaj liniju</button>
+  </form>
+</div>

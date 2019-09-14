@@ -1,0 +1,17 @@
+<mat-card *ngIf="ticketType" class="card">
+  <mat-card-title>{{ticketType.name}}</mat-card-title>
+
+  <mat-card-content>
+    <p> Trajanje u satima: <span><b>{{ticketType.durationInHours}}</b></span> </p>
+
+    <p>Potreban status: <span><b>{{ticketType.requiredStatus}}</b></span> </p>
+
+    <p>Zone u kojima vazi karta: <span><b>{{makeZoneView(ticketType.zones)}}</b></span> </p>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-icon-button color="basic" (click)="onEdit()" class="button"><mat-icon color="primary">edit</mat-icon></button>
+    <button mat-icon-button color="warn" (click)="onDelete()" class="button"><mat-icon>delete</mat-icon></button>
+  </mat-card-actions>
+
+</mat-card>
